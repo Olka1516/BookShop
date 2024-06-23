@@ -1,0 +1,55 @@
+@mixin content-container {
+  .content-container {
+    position: relative;
+    height: 100vh;
+    padding-top: 70px;
+    background-color: $light_brown;
+    z-index: -2;
+  }
+
+  .content-img {
+    position: absolute;
+    z-index: -1;
+  }
+
+  .content-img-1 {
+    bottom: 0;
+    left: -35px;
+  }
+
+  .content-img-2 {
+    bottom: 250px;
+    left: -45px;
+  }
+
+  .content-img-3 {
+    top: 1px;
+    right: -15px;
+  }
+
+  .content-img-4 {
+    height: 130px;
+    top: 140px;
+    right: 245px;
+  }
+
+  p {
+    text-transform: uppercase;
+    color: $grey;
+  }
+
+  h1 {
+    font-size: 50px;
+    }
+    
+    .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    
+    .content-main-img {
+    height: 500px;
+    // transform: rotateY('90deg');
+  }
+}

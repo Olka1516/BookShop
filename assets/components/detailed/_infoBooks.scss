@@ -1,0 +1,16 @@
+@mixin info-books-component {
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  .book-img {
+    height: 300px;
+    width: 200px;
+  }
+
+  .info-container {
+    background-color: $white;
+    height: 250px;
+  }
+}

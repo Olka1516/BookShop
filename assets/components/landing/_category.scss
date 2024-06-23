@@ -1,0 +1,18 @@
+@mixin category-container {
+  .container {
+    background-color: $light_brown;
+  }
+
+  .category-navs {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    border-bottom: 1px solid $dark_brown;
+  }
+  .info-books {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+}

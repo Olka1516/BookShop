@@ -1,0 +1,41 @@
+@import "./layouts/header";
+@import "./layouts/footer";
+@import "./inputs/search";
+@import "./buttons/noBgNoBorder";
+@import "./buttons/circleWhite";
+@import "./components/landing/content";
+@import "./components/landing/carousel";
+@import "./components/landing/category";
+@import "./components/detailed/infoBooks";
+@import "./general/container";
+@import "./themes";
+
+@mixin default {
+  @include header;
+  @include footer;
+  @include no-bg-no-border;
+}
+
+@mixin search {
+  @include search-component;
+}
+
+@mixin content {
+  @include container;
+  @include content-container;
+}
+
+@mixin carousel {
+  @include carousel-container;
+  @include circle-white;
+}
+
+@mixin category {
+  @include container;
+  @include category-container;
+  @include no-bg-no-border;
+}
+
+@mixin info-books {
+  @include info-books-component;
+}
