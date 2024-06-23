@@ -15,11 +15,11 @@ body {
 }
 
 input {
-    outline: none;
-    border-color: #ccc;
+  outline: none;
+  border-color: #ccc;
 }
 
-button {
+button{
   margin: 0;
   padding: 7px 23px;
   cursor: pointer;
@@ -38,6 +38,11 @@ button {
 button:focus {
   outline: none;
 }
+
+a {
+  text-decoration: none;
+}
+
 
 h1,
 h2,
