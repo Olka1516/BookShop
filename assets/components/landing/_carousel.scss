@@ -1,0 +1,79 @@
+@mixin carousel-container {
+  .container {
+    height: 420px;
+    padding: 30px 0;
+    position: relative;
+    background-color: $blue;
+    text-align: center;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 100%;
+      top: 0;
+      background-color: $black;
+    }
+    &::after {
+      right: 0;
+      background: linear-gradient(
+        -90deg,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(49, 111, 173, 1) 100%
+      );
+    }
+    &::before {
+      left: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(49, 111, 173, 1) 100%
+      );
+    }
+  }
+
+  h1 {
+    font-size: 30px;
+    color: $white;
+  }
+
+  .carousel {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .carousel-content {
+    perspective: 1100px;
+    display: flex;
+  }
+
+  .carousel-books {
+    object-fit: cover;
+    max-height: 300px;
+    width: 193px;
+  }
+
+  .arrow {
+    position: absolute;
+    z-index: 2;
+  }
+
+  .arrow-left {
+    left: 10px;
+  }
+
+  .arrow-right {
+    right: 10px;
+  }
+
+  .carousel-container {
+    max-width: 193px;
+    min-width: 126px;
+    width: auto;
+  }
+}

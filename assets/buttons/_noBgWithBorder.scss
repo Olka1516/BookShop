@@ -1,0 +1,8 @@
+@mixin no-bg-with-border {
+  .no-bg-with-border {
+    background-color: transparent;
+    border: 1px solid $blue;
+    color: $blue;
+    padding: 7px 23px;
+  }
+}

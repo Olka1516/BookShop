@@ -1,0 +1,28 @@
+@mixin footer {
+  footer {
+    padding: 20px 0;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px $black;
+  }
+
+  .footer-title {
+    margin-bottom: 30px;
+  }
+  .footer-navs {
+    display: flex;
+    gap: 5px;
+  }
+
+  hr {
+    width: 350px;
+  }
+
+  .footer-logo {
+    margin-top: 30px;
+    color: $grey;
+  }
+}
