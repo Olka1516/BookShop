@@ -3,12 +3,9 @@
     <div class="category-navs">
       <h1>Category</h1>
       <div class="navs">
-        <button class="no-bg-no-border">All genres</button>
-        <button class="no-bg-no-border">Science</button>
-        <button class="no-bg-no-border">Fiction</button>
-        <button class="no-bg-no-border">Business</button>
-        <button class="no-bg-no-border">Philosophy</button>
-        <button class="no-bg-no-border">Fantasy</button>
+        <div v-for="genre in genres">
+          <button class="no-bg-no-border">{{ genre }}</button>
+        </div>
       </div>
     </div>
     <div class="info-books">
@@ -28,6 +25,14 @@
 </template>
 
 <script setup lang="ts">
+const genres = ref([
+  "All genres",
+  "Science",
+  "Fiction",
+  "Business",
+  "Philosophy",
+  "Fantasy",
+]);
 const arrBooks = ref([
   {
     id: "1",
