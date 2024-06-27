@@ -1,0 +1,7 @@
+@mixin no-bg-no-border {
+  .no-bg-no-border {
+    background-color: transparent;
+    border: none;
+    color: $blue;
+  }
+}
