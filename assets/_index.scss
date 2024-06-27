@@ -10,6 +10,7 @@
 @import "./components/detailed/infoBooks";
 @import "./general/container";
 @import "./themes";
+@import "./details/detailsBook";
 
 @mixin default {
   @include header;
@@ -41,4 +42,8 @@
 @mixin info-books {
   @include no-bg-no-border;
   @include info-books-component;
+}
+
+@mixin details-book {
+  @include details-book-component;
 }

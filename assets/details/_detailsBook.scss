@@ -1,0 +1,60 @@
+@mixin details-book-component {
+  .details {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    gap: 200px;
+  }
+
+  .details-line {
+    background: $black;
+    background: linear-gradient(280deg, $black 0%, $blue 100%);
+    width: 380px;
+    height: 100%;
+  }
+
+  .details-book-img {
+    position: absolute;
+    height: 500px;
+    width: 330px;
+    left: 200px;
+    top: 105px;
+  }
+
+  .details-stars,
+  .details-buy {
+    display: flex;
+  }
+
+  .details-buy {
+    gap: 10px;
+    flex-direction: column;
+    & h2 {
+      font-weight: 800;
+      font-size: 25px;
+    }
+  }
+
+  .details-content {
+    margin-block: 110px 80px;
+    width: 680px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .details-content-texts {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  p {
+    color: $grey;
+  }
+}
