@@ -1,0 +1,8 @@
+@mixin basket-component {
+  .container {
+    min-height: 100vh;
+    display: flex;
+    padding-block: 70px 40px;
+    gap: 20px;
+  }
+}
