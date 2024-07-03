@@ -33,10 +33,9 @@ const userInfo = ref(props.modelValue);
 const handleInput = (event: any) => {
   if (!event.target) return;
   userInfo.value = event.target.value;
-  let cleaned = userInfo.value.replace(/\D/g, ""); // Видаляємо всі символи, які не є цифрами
+  let cleaned = userInfo.value.replace(/\D/g, "");
   let formatted = "";
 
-  // Форматуємо номер телефону динамічно
   if (cleaned.length > 0) {
     formatted = "(" + cleaned.substring(0, 3);
   }
@@ -61,15 +60,6 @@ const isInfoInvalid = () => {
     (props.error === UsernameInUse && props.type === "Username") ||
     props.error === UsernameOrPasswordWrong
   );
-};
-
-const validatePhoneNumber = () => {
-  const phonePattern = /^\(\d{3}\) \d{3}-\d{4}$/;
-  if (!phonePattern.test(userInfo.value)) {
-    console.log("Please enter a valid phone number.");
-  } else {
-    console.log("non");
-  }
 };
 </script>
 <style scoped lang="scss">

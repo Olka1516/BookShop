@@ -29,6 +29,10 @@
     justify-content: space-between;
   }
 
+  .table-container-end {
+    align-items: flex-end;
+  }
+
   .table-amount,
   .table-amount-inner {
     display: flex;
@@ -42,7 +46,7 @@
   .table-amount-text {
     border-bottom: 1px solid $blue;
     border-top: 1px solid $blue;
-    padding: 5.5px 14px;
+    padding: 5px 14px;
   }
 
   .table-amount-btn {

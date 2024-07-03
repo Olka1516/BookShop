@@ -16,7 +16,7 @@
       </div>
     </div>
   </div>
-  <div class="table-container">
+  <div class="table-container table-container-end">
     <img class="table-row-svg" src="/public/trash.svg" alt="" />
     <h2>{{ totalPrice * totalAmount }}</h2>
   </div>
@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import type { Book } from "~/types";
 
-const headers = ref(["Image", "Title", "Author", "Amount", "Price"]);
+const orderAmount = useState<number>("orderAmount");
 
 const props = defineProps<{ book: Book }>();
 const totalAmount = ref(1);
@@ -38,7 +38,12 @@ const changeAmount = (number: number) => {
   )
     return;
   totalAmount.value += number;
+  orderAmount.value += number * props.book.price;
 };
+
+onMounted(() => {
+  orderAmount.value += totalPrice.value;
+});
 </script>
 
 <style scoped lang="scss">
