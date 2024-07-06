@@ -1,5 +1,6 @@
 @import "./layouts/header";
 @import "./layouts/footer";
+@import "./layouts/auth";
 @import "./inputs/search";
 @import "./buttons/noBgNoBorder";
 @import "./buttons/circleWhite";
@@ -41,4 +42,15 @@
 @mixin info-books {
   @include no-bg-no-border;
   @include info-books-component;
+}
+
+@mixin auth {
+  @include auth-component;
+}
+
+@mixin sign-up {
+}
+
+@mixin sign-in {
+
 }
