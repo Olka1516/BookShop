@@ -1,15 +1,16 @@
 <template>
   <div class="container content-container">
-    <img class="content-img content-img-1" src="/1.png" alt="" />
-    <img class="content-img content-img-2" src="/2.png" alt="" />
-    <img class="content-img content-img-3" src="/3.png" alt="" />
-    <img class="content-img content-img-4" src="/3.png" alt="" />
+    <img
+      v-for="n in 4"
+      :src="`/${n}.png`"
+      :class="`content-img content-img-${n}`"
+    />
     <div class="content">
       <div>
         <p>The bookworm editors</p>
         <h1>Featured Books of the <b>June</b></h1>
       </div>
-      <img class="content-main-img" src="/contentBooks.png" alt="" />
+      <img class="content-main-img" src="/contentBooks.webp" alt="" />
     </div>
   </div>
 </template>
