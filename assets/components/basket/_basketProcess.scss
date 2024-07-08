@@ -1,0 +1,46 @@
+@mixin basket-process-container {
+  h1 {
+    font-size: 25px;
+    font-weight: 600;
+    padding-block: 30px 20px;
+  }
+
+  .orcess-processing {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    gap: 32px;
+    width: 100%;
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 8px;
+    box-shadow: rgba(16, 24, 40, 0.03) 0px 4px 6px -2px,
+      rgba(16, 24, 40, 0.05) 0px 4px 24px -4px,
+      rgba(16, 24, 40, 0.03) 0px 4px 6px -2px,
+      rgba(16, 24, 40, 0.05) 0px 4px 24px -4px;
+    padding: 24px;
+  }
+
+  .form-input {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  hr {
+    border-color: $blue;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 26px;
+  }
+}

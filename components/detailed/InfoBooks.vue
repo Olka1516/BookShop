@@ -8,12 +8,13 @@
         </h1>
         <p>{{ props.description }}</p>
       </div>
-      <NuxtLink to="/about" class="no-bg-no-border">Details</NuxtLink>
+      <NuxtLink :to="LINK_TEMPLATES.ABOUT()" class="no-bg-no-border">Details</NuxtLink>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { LINK_TEMPLATES } from "~/mocks/links";
 const props = defineProps<{
   id: string;
   title: string;
