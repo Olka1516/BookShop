@@ -1,7 +1,7 @@
 <template>
   <div class="details">
     <div class="details-line"></div>
-    <img class="details-book-img" src="/temp/1.jpg" alt="" />
+    <img class="details-book-img" :src="`/temp/${dataFetch.image}`" alt="" />
     <div class="details-content">
       <div class="details-content-texts">
         <div>
@@ -10,7 +10,7 @@
         </div>
         <div class="details-stars">
           <div class="details-star" v-for="n in 5">
-            <img v-if="dataFetch.stars >= n" src="/star-full.svg" alt="" />
+            <img v-if="dataFetch.star >= n" src="/star-full.svg" alt="" />
             <img v-else src="/star.svg" alt="" />
           </div>
         </div>
