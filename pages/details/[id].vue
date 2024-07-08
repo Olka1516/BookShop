@@ -29,7 +29,7 @@ import type { Book } from "~/types";
 
 const route = useRoute();
 const dataFetch: Book = await $fetch(
-  "http://localhost:8080/api/book/get-book/" + route.params.id
+  `${process.env.API_URL}/book/get-book/` + route.params.id
 );
 </script>
 
