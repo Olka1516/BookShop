@@ -2,7 +2,7 @@ export const LINK_TEMPLATES = {
   PROJECTS: () => "/",
   BASKET: () => "/basket",
   ABOUT: () => "/about",
-  SIGN_IN: () => "/sign-in",
-  SIGN_UP: () => "/sign-up",
+  SIGN_IN: () => "/signIn",
+  SIGN_UP: () => "/signUp",
   INFOBOOKS: (username: string) => `/profile/${username}`,
 };

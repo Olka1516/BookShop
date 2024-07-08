@@ -10,13 +10,16 @@
 @import "./components/landing/category";
 @import "./components/detailed/infoBooks";
 @import "./general/container";
+@import "./general/forms";
 @import "./themes";
 @import "./components/basket/basketTable";
 @import "./components/basket/basketTableCard";
 @import "./components/basket/basketOrder";
 @import "./components/basket/basketProcess";
 @import "./pages/basket";
+@import "./pages/sign";
 @import "./inputs/text";
+@import "./inputs/password";
 @import "./inputs/description";
 @import "./details/detailsBook";
 
@@ -24,10 +27,6 @@
   @include header;
   @include footer;
   @include no-bg-no-border;
-}
-
-@mixin search {
-  @include search-component;
 }
 
 @mixin content {
@@ -71,6 +70,7 @@
 
 @mixin basket-process {
   @include basket-process-container;
+  @include forms-components;
 }
 
 @mixin inputs {
@@ -81,6 +81,17 @@
   @include inputs-container;
   @include description-container;
 }
+
+@mixin search {
+  @include search-component;
+}
+
+@mixin password {
+  @include password-component;
+  @include inputs-container;
+  @include no-bg-no-border;
+}
+
 @mixin details-book {
   @include details-book-component;
 }
@@ -89,9 +100,9 @@
   @include auth-component;
 }
 
-@mixin sign-up {
-}
-
-@mixin sign-in {
-
+@mixin sign {
+  @include no-bg-with-border;
+  @include forms-components;
+  @include forms-components;
+  @include sign-container;
 }

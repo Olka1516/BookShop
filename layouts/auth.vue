@@ -1,7 +1,6 @@
 <template>
-  <div>
+  <div class="auth-container">
     <img src="/books.png" alt="" />
-
     <slot />
   </div>
 </template>
