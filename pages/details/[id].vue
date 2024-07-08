@@ -32,7 +32,7 @@ const dataFetch: {
   description: string;
   author: string;
   price: number;
-  count: string;
+  amount: string;
   image: string;
   category: string;
   star: number;
