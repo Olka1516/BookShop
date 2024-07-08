@@ -6,7 +6,9 @@
     </div>
     <div class="header-navs">
       <InputsSearch />
-      <NuxtLink to="/basket"><img src="/basket.svg" alt="" /></NuxtLink>
+      <NuxtLink :to="LINK_TEMPLATES.BASKET()"
+        ><img src="/basket.svg" alt=""
+      /></NuxtLink>
     </div>
   </header>
 
@@ -28,6 +30,8 @@
 </template>
 
 <script setup lang="ts">
+import { LINK_TEMPLATES } from "~/mocks/links";
+
 const navs = ref(["Home", "Categories", "Shop"]);
 const mediaNavs = ref([
   "instagram",

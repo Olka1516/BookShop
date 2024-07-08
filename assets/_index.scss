@@ -17,6 +17,7 @@
 @import "./pages/basket";
 @import "./inputs/text";
 @import "./inputs/description";
+@import "./details/detailsBook";
 
 @mixin default {
   @include header;
@@ -78,4 +79,7 @@
 @mixin description {
   @include inputs-container;
   @include description-container;
+}
+@mixin details-book {
+  @include details-book-component;
 }

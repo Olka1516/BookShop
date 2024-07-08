@@ -97,16 +97,6 @@ const submit = async () => {
   if (!isFormCorrect) {
     return;
   }
-  try {
-    // await authS.signIn({ username: user.username, password: user.password })
-    // localStorage.setItem('username', user.username)
-    // await router.push('/user-profile/' + user.username)
-    // toastS.sendSuccess('signInSuccess')
-  } catch (err) {
-    // const message = err as TRequestError
-    // toastS.sendError('textDanger')
-    // error.value = message.response?.data.message || ''
-  }
 };
 </script>
 
