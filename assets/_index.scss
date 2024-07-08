@@ -10,6 +10,13 @@
 @import "./components/detailed/infoBooks";
 @import "./general/container";
 @import "./themes";
+@import "./components/basket/basketTable";
+@import "./components/basket/basketTableCard";
+@import "./components/basket/basketOrder";
+@import "./components/basket/basketProcess";
+@import "./pages/basket";
+@import "./inputs/text";
+@import "./inputs/description";
 @import "./details/detailsBook";
 
 @mixin default {
@@ -44,6 +51,35 @@
   @include info-books-component;
 }
 
+@mixin basket-table {
+  @include basket-table-component;
+}
+
+@mixin basket-table-card {
+  @include basket-table-card-component;
+}
+
+@mixin basket {
+  @include container;
+  @include basket-component;
+}
+
+@mixin basket-order {
+  @include basket-order-container;
+}
+
+@mixin basket-process {
+  @include basket-process-container;
+}
+
+@mixin inputs {
+  @include inputs-container;
+}
+
+@mixin description {
+  @include inputs-container;
+  @include description-container;
+}
 @mixin details-book {
   @include details-book-component;
 }

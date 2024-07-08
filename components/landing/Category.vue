@@ -19,12 +19,13 @@
       </div>
     </div>
     <div class="category-btn-more">
-      <NuxtLink to="/about" class="no-bg-with-border">See more</NuxtLink>
+      <NuxtLink :to="LINK_TEMPLATES.ABOUT()" class="no-bg-with-border">See more</NuxtLink>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { LINK_TEMPLATES } from "~/mocks/links";
 import { data } from "~/mocks/mock";
 const genres = ref([
   "All genres",

@@ -25,18 +25,12 @@
 </template>
 
 <script setup lang="ts">
+import type { Book } from "~/types";
+
 const route = useRoute();
-const dataFetch: {
-  id: string;
-  title: string;
-  description: string;
-  author: string;
-  price: number;
-  amount: string;
-  image: string;
-  category: string;
-  star: number;
-} = await $fetch("http://localhost:8080/api/book/get-book/" + route.params.id);
+const dataFetch: Book = await $fetch(
+  `${process.env.API_URL}/book/get-book/` + route.params.id
+);
 </script>
 
 <style scoped lang="scss">

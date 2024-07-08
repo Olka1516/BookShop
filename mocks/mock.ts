@@ -7,6 +7,7 @@ export const data: {
   amount: number;
   price: number;
   category: string;
+  star: number;
 }[] = [
   {
     id: "1",
@@ -18,6 +19,7 @@ export const data: {
     amount: 10,
     price: 10,
     category: "fairy",
+    star: 4,
   },
   {
     id: "2",
@@ -29,6 +31,7 @@ export const data: {
     amount: 11,
     price: 130,
     category: "fairy tile",
+    star: 2
   },
   {
     id: "3",
@@ -40,6 +43,7 @@ export const data: {
     amount: 113,
     price: 190,
     category: "fairy",
+    star: 3
   },
   {
     id: "4",
@@ -51,5 +55,6 @@ export const data: {
     amount: 156,
     price: 1670,
     category: "fairy tale",
+    star: 5
   },
 ];

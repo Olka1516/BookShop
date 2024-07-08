@@ -1,0 +1,52 @@
+@mixin basket-order-container {
+  .order-container {
+    position: sticky;
+    top: 98px;
+    min-width: 360px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 8px;
+    box-shadow: rgba(16, 24, 40, 0.03) 0px 4px 6px -2px,
+      rgba(16, 24, 40, 0.05) 0px 4px 24px -4px,
+      rgba(16, 24, 40, 0.03) 0px 4px 6px -2px,
+      rgba(16, 24, 40, 0.05) 0px 4px 24px -4px;
+    padding: 24px;
+  }
+
+  .order-container-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  h1 {
+    font-size: 25px;
+    font-weight: 600;
+  }
+
+  .order-content {
+    padding-block: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .order-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .order-btn {
+    margin-top: 20px;
+  }
+
+  hr {
+    border-color: $blue;
+  }
+}

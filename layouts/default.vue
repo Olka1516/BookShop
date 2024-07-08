@@ -4,7 +4,12 @@
       <img class="logo-img" src="/logo.png" alt="" />
       <button v-for="nav in navs">{{ nav }}</button>
     </div>
-    <InputsSearch />
+    <div class="header-navs">
+      <InputsSearch />
+      <NuxtLink :to="LINK_TEMPLATES.BASKET()"
+        ><img src="/basket.svg" alt=""
+      /></NuxtLink>
+    </div>
   </header>
 
   <slot />
@@ -25,6 +30,8 @@
 </template>
 
 <script setup lang="ts">
+import { LINK_TEMPLATES } from "~/mocks/links";
+
 const navs = ref(["Home", "Categories", "Shop"]);
 const mediaNavs = ref([
   "instagram",
