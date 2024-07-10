@@ -24,4 +24,11 @@
       rgba(16, 24, 40, 0.05) 0px 4px 24px -4px;
     padding: 24px;
   }
+
+  .table-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+  }
 }
