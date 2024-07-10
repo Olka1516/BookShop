@@ -18,7 +18,7 @@
       </div>
       <div class="details-buy">
         <h2>${{ dataFetch.price }}</h2>
-        <button>Buy</button>
+        <button @click="buyBook()">Buy</button>
       </div>
     </div>
   </div>
@@ -27,10 +27,31 @@
 <script setup lang="ts">
 import type { Book } from "~/types";
 
+const runtimeConfig = useRuntimeConfig();
 const route = useRoute();
-const dataFetch: Book = await $fetch(
-  `${process.env.API_URL}/book/get-book/` + route.params.id
+const dataFetch = ref({
+  title: "",
+  image: "",
+  description: "",
+  author: "",
+  star: 0,
+  price: 0,
+});
+
+const data: Book = await $fetch(
+  `${runtimeConfig.public.API_BASE_URL}/book/get-book/` + route.params.id
 );
+
+dataFetch.value = data;
+
+const buyBook = () => {
+  let basket = localStorage.getItem("basket");
+  const newBasket = basket ? JSON.parse(basket) : [];
+  newBasket.push(dataFetch.value);
+  
+  const jsonbasket = JSON.stringify(newBasket);
+  localStorage.setItem("basket", jsonbasket);
+};
 </script>
 
 <style scoped lang="scss">
