@@ -54,6 +54,7 @@ const deleteBook = () => {
   const jsonBasket = JSON.stringify(newBasket);
   localStorage.setItem("basket", jsonBasket);
   emit("deleteBook", props.book.id);
+  orderAmount.value -= totalPrice.value * totalAmount.value;
 };
 
 onMounted(() => {
