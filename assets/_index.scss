@@ -19,6 +19,7 @@
 @import "./pages/basket";
 @import "./pages/sign";
 @import "./inputs/text";
+@import "./inputs/error";
 @import "./inputs/password";
 @import "./inputs/description";
 @import "./details/detailsBook";
@@ -106,4 +107,8 @@
   @include forms-components;
   @include forms-components;
   @include sign-container;
+}
+
+@mixin error {
+  @include error-container;
 }
