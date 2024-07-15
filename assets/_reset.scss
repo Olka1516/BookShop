@@ -105,6 +105,12 @@ img {
   border: none;
 }
 
+li {
+  font-size: 13px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+}
+
 @media screen and (max-width: 1024px) {
   * {
     user-select: none;

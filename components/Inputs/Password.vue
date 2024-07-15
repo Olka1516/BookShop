@@ -28,17 +28,20 @@
     <h4>
       <b>Suggestions</b>
     </h4>
-    <ul>
-      <li>At least one uppercase</li>
-      <li>At least one lowercase</li>
-      <li>At least one numeric</li>
-      <li>Minimum 8 characters</li>
+    <ul v-for="suggestion in suggestions">
+      <li>{{ suggestion }}</li>
     </ul>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ErrorMessageEnum } from "~/types";
+const suggestions = [
+  "At least one uppercase",
+  "At least one lowercase",
+  "At least one numeric",
+  "Minimum 8 characters",
+];
 
 const bloke = ref("password");
 const props = defineProps<{
