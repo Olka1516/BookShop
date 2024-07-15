@@ -49,4 +49,9 @@
   hr {
     border-color: $blue;
   }
+
+  .disable {
+    opacity: 0.6;
+    pointer-events: none;
+  }
 }

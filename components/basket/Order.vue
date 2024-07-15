@@ -20,13 +20,19 @@
         <h2>Total</h2>
         <h2>{{ orderAmount }}</h2>
       </div>
-      <button class="order-btn">Order</button>
+      <button class="order-btn" :class="{ disable: orderAmount === 0 }" @click='orderAll()'>
+        Order
+      </button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 const orderAmount = useState("orderAmount", () => 0);
+
+const orderAll = () => {
+  console.log('work')
+}
 </script>
 
 <style scoped lang="scss">

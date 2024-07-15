@@ -1,6 +1,6 @@
 <template>
   <div class="table-content">
-    <img class="table-row-img" :src="`${book.image}`" alt="" />
+    <img class="table-row-img" :src="`temp/${book.image}`" alt="" />
     <div class="table-container">
       <div>
         <h2>{{ book.title }}</h2>
@@ -17,7 +17,9 @@
     </div>
   </div>
   <div class="table-container table-container-end">
-    <img class="table-row-svg" src="/public/trash.svg" alt="" />
+    <button class="circle-white" @click="deleteBook()">
+      <img class="table-row-svg" src="/public/trash.svg" alt="" />
+    </button>
     <h2>{{ totalPrice * totalAmount }}</h2>
   </div>
 </template>
@@ -28,6 +30,9 @@ import type { Book } from "~/types";
 const orderAmount = useState<number>("orderAmount");
 
 const props = defineProps<{ book: Book }>();
+const emit = defineEmits<{
+  (e: "deleteBook", id: string): void;
+}>();
 const totalAmount = ref(1);
 const totalPrice = ref(props.book.price);
 
@@ -39,6 +44,17 @@ const changeAmount = (number: number) => {
     return;
   totalAmount.value += number;
   orderAmount.value += number * props.book.price;
+};
+
+const deleteBook = () => {
+  let basket = localStorage.getItem("basket");
+  let newBasket = JSON.parse(basket!);
+  newBasket = newBasket.filter((book: Book) => book.id !== props.book.id);
+
+  const jsonBasket = JSON.stringify(newBasket);
+  localStorage.setItem("basket", jsonBasket);
+  emit("deleteBook", props.book.id);
+  orderAmount.value -= totalPrice.value * totalAmount.value;
 };
 
 onMounted(() => {
