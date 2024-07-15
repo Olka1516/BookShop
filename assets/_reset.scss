@@ -53,6 +53,11 @@ button:focus {
 
 a {
   text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 h1,
@@ -98,6 +103,12 @@ img {
   pointer-events: none;
   outline: none;
   border: none;
+}
+
+li {
+  font-size: 13px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
 }
 
 @media screen and (max-width: 1024px) {

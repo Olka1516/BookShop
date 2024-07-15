@@ -1,0 +1,16 @@
+@mixin forms-components {
+  .form-input {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+}

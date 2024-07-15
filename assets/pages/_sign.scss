@@ -1,0 +1,38 @@
+@mixin sign-container {
+  .form {
+    margin: auto;
+    padding: 0 10px;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 1440px) {
+      max-width: 400px;
+      height: 100vh;
+      justify-content: center;
+    }
+    @media screen and (max-width: 1200px) {
+      height: 100vh;
+      justify-content: center;
+    }
+  }
+
+  h1 {
+    font-size: 35px;
+    color: $blue;
+  }
+
+  .sign-btns {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    & button,
+    a {
+      width: 50%;
+      text-align: center;
+    }
+  }
+
+  .no-bg-with-border {
+    background-color: $white;
+  }
+}
