@@ -18,7 +18,9 @@
     height: 500px;
     width: 330px;
     left: 200px;
-    top: 105px;
+    margin-top: 20px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .details-stars,
