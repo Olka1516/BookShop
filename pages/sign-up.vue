@@ -3,9 +3,11 @@
     <h1>SIGN UP</h1>
     <div class="form-input">
       <InputsText type="Username" v-model="data.username" :v="v$.username" />
+      <InputsErrorMessage :v="v$.username" :error="error" />
     </div>
     <div class="form-input">
       <InputsText type="Email" v-model="data.email" :v="v$.email" />
+      <InputsErrorMessage :v="v$.email" :error="error" />
     </div>
     <div class="form-input">
       <InputsPassword
@@ -13,6 +15,7 @@
         v-model="data.password"
         :v="v$.password"
       />
+      <InputsErrorMessage :v="v$.password" />
     </div>
     <div class="form-input">
       <InputsPassword
@@ -20,9 +23,10 @@
         v-model="data.confirmPassword"
         :v="v$.confirmPassword"
       />
+      <InputsErrorMessage :v="v$.confirmPassword" />
     </div>
     <div class="sign-btns">
-      <button>Submit</button>
+      <button @click="submit()">Submit</button>
       <NuxtLink class="no-bg-with-border" :to="LINK_TEMPLATES.SIGN_IN()"
         >Sign in</NuxtLink
       >
@@ -37,6 +41,8 @@ import { useVuelidate } from "@vuelidate/core";
 definePageMeta({
   layout: "auth",
 });
+
+const error = ref("");
 
 const data = reactive({
   username: "",
