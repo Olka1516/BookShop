@@ -1,25 +1,27 @@
+@import "./themes";
+@import "./layouts/auth";
 @import "./layouts/header";
 @import "./layouts/footer";
-@import "./layouts/auth";
-@import "./inputs/search";
-@import "./buttons/noBgNoBorder";
 @import "./buttons/circleWhite";
+@import "./buttons/noBgNoBorder";
 @import "./buttons/noBgWithBorder";
+@import "./general/forms";
+@import "./general/container";
+@import "./components/admin/orders";
 @import "./components/landing/content";
 @import "./components/landing/carousel";
 @import "./components/landing/category";
 @import "./components/detailed/infoBooks";
-@import "./general/container";
-@import "./general/forms";
-@import "./themes";
-@import "./components/basket/basketTable";
-@import "./components/basket/basketTableCard";
 @import "./components/basket/basketOrder";
+@import "./components/basket/basketTable";
 @import "./components/basket/basketProcess";
-@import "./pages/basket";
+@import "./components/basket/basketTableCard";
 @import "./pages/sign";
+@import "./pages/basket";
+@import "./pages/adminPanel";
 @import "./inputs/text";
 @import "./inputs/error";
+@import "./inputs/search";
 @import "./inputs/password";
 @import "./inputs/description";
 @import "./details/detailsBook";
@@ -111,4 +113,14 @@
 
 @mixin error {
   @include error-container;
+}
+
+@mixin admin-panel {
+  @include admin-panel-container;
+}
+
+@mixin orders {
+  @include container;
+  @include circle-white;
+  @include orders-container;
 }

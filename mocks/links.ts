@@ -5,4 +5,6 @@ export const LINK_TEMPLATES = {
   SIGN_IN: () => "/sign-in",
   SIGN_UP: () => "/sign-up",
   INFOBOOKS: (username: string) => `/profile/${username}`,
+  ADMINPANEL: () => `/admin-panel`,
+  ADMINTABLE: (id: string) => `/admin-panel/${id}`,
 };

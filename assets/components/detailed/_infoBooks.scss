@@ -23,6 +23,13 @@
     }
   }
 
+  .light-theme {
+    background-color: $light_brown;
+    & p {
+      color: $black;
+    }
+  }
+
   .info-texts {
     display: flex;
     flex-direction: column;
@@ -32,8 +39,8 @@
   p {
     color: $grey;
     display: -webkit-box;
-        -webkit-line-clamp: 5;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
