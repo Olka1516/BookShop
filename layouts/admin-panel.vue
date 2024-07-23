@@ -17,23 +17,14 @@
         <button class="sidebar-exit">Log out</button>
       </div>
     </div>
-    <div class="panel-content">
-      <LandingCategory v-if="activeNav === 'All books'" theme="white" />
-      <AdminOrders v-if="activeNav === 'All Orders'" />
-    </div>
+
+    <slot />
   </div>
 </template>
 
 <script setup lang="ts">
-const route = useRoute();
-
-definePageMeta({
-  layout: false,
-});
-
-console.log(route.params.id);
-const allNavs = ref(["All books", "All Orders"]);
-const activeNav = ref("All books");
+const allNavs = ref(["All Books", "All Orders", "New book"]);
+const activeNav = useState("activeNav", () => "All Books");
 
 const changeNav = (nav: string) => {
   activeNav.value = nav;
@@ -46,5 +37,5 @@ const isActive = (nav: string) => {
 
 <style scoped lang="scss">
 @use "@/assets/index";
-@include index.admin-panel;
+@include index.admin-sidebar;
 </style>

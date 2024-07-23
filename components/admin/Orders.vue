@@ -9,13 +9,24 @@
     <div class="table-items">
       <div v-for="order in data" class="table-items-content">
         <div v-for="item in order">
-          <h3 v-if="!Array.isArray(item) && order.comment !== item && order.id !== item">
+          <h3
+            v-if="
+              !Array.isArray(item) &&
+              order.comment !== item &&
+              order.id !== item
+            "
+          >
             {{ item }}
           </h3>
         </div>
-        <NuxtLink class="circle-white" :to="LINK_TEMPLATES.ADMINTABLE(order.id)"
-          ><img src="/link.svg"
-        /></NuxtLink>
+        <div class="table-navs">
+          <NuxtLink
+            class="circle-white"
+            :to="LINK_TEMPLATES.ADMINTABLE(order.id)"
+            ><img src="/link.svg"
+          /></NuxtLink>
+          <button class="circle-white"><img src="/trash.svg" /></button>
+        </div>
       </div>
     </div>
   </div>

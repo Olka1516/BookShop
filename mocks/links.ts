@@ -1,7 +1,7 @@
 export const LINK_TEMPLATES = {
   PROJECTS: () => "/",
   BASKET: () => "/basket",
-  ABOUT: () => "/about",
+  ABOUT: () => "/",
   SIGN_IN: () => "/sign-in",
   SIGN_UP: () => "/sign-up",
   INFOBOOKS: (username: string) => `/profile/${username}`,

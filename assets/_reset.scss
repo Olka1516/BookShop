@@ -16,7 +16,8 @@ body {
   margin: 0;
 }
 
-input {
+input,
+textarea {
   outline: none;
   border-color: #ccc;
   font-family: "Roboto", sans-serif;
@@ -24,13 +25,15 @@ input {
   font-style: normal;
 }
 
-i {
+i,
+textarea {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-button {
+button,
+.button {
   margin: 0;
   padding: 6px 24px;
   cursor: pointer;
@@ -47,7 +50,8 @@ button {
   }
 }
 
-button:focus {
+button:focus,
+.button:focus {
   outline: none;
 }
 

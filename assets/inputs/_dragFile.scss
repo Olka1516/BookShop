@@ -1,0 +1,41 @@
+@mixin drag-file-component {
+  #drop-area {
+    border: 2px dashed $grey;
+    border-radius: 20px;
+    margin: 0 auto;
+    text-align: center;
+    width: 370px;
+    min-height: 450px;
+    padding: 3px;
+  }
+
+  .invalid {
+    border-color: $red !important;
+  }
+
+  #drop-area.highlight {
+    border-color: $blue;
+  }
+
+  .image-content {
+    position: relative;
+    min-height: 180px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  .drop-form {
+    padding: 5px;
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #fileElem {
+    display: none;
+  }
+}

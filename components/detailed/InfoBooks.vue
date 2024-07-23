@@ -8,7 +8,9 @@
         </h1>
         <p>{{ props.description }}</p>
       </div>
-      <NuxtLink :to="LINK_TEMPLATES.ABOUT()" class="no-bg-no-border">Details</NuxtLink>
+      <NuxtLink :to="LINK_TEMPLATES.ABOUT()" class="no-bg-no-border"
+        >Details</NuxtLink
+      >
     </div>
   </div>
 </template>
@@ -20,7 +22,7 @@ const props = defineProps<{
   title: string;
   image: string;
   description: string;
-  theme: string
+  theme?: string;
 }>();
 </script>
 

@@ -2,12 +2,14 @@
 @import "./layouts/auth";
 @import "./layouts/header";
 @import "./layouts/footer";
+@import "./layouts/adminSidebar";
 @import "./buttons/circleWhite";
 @import "./buttons/noBgNoBorder";
 @import "./buttons/noBgWithBorder";
 @import "./general/forms";
 @import "./general/container";
 @import "./components/admin/orders";
+@import "./components/admin/newBook";
 @import "./components/landing/content";
 @import "./components/landing/carousel";
 @import "./components/landing/category";
@@ -18,11 +20,12 @@
 @import "./components/basket/basketTableCard";
 @import "./pages/sign";
 @import "./pages/basket";
-@import "./pages/adminPanel";
+@import "./pages/adminOrder";
 @import "./inputs/text";
 @import "./inputs/error";
 @import "./inputs/search";
 @import "./inputs/password";
+@import "./inputs/dragFile";
 @import "./inputs/description";
 @import "./details/detailsBook";
 
@@ -86,6 +89,10 @@
   @include description-container;
 }
 
+@mixin drag-file {
+  @include drag-file-component;
+}
+
 @mixin search {
   @include search-component;
 }
@@ -115,8 +122,19 @@
   @include error-container;
 }
 
-@mixin admin-panel {
-  @include admin-panel-container;
+@mixin admin-order {
+  @include container;
+  @include admin-order-container;
+}
+
+@mixin admin-sidebar {
+  @include admin-sidebar-container;
+}
+
+@mixin admin-new-book {
+  @include forms-components;
+  @include container;
+  @include admin-new-book-container;
 }
 
 @mixin orders {

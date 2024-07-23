@@ -1,6 +1,6 @@
 <template>
   <div class="table-content">
-    <img class="table-row-img" :src="`temp/${book.image}`" alt="" />
+    <img class="table-row-img" :src="`${book.image}`" alt="" />
     <div class="table-container">
       <div>
         <h2>{{ book.title }}</h2>
@@ -9,18 +9,33 @@
       <div class="table-amount">
         <h3>{{ book.price }}$ / pcs.</h3>
         <div class="table-amount-inner">
-          <button class="table-amount-btn" @click="changeAmount(-1)">-</button>
-          <h3 class="table-amount-text">{{ totalAmount }}</h3>
-          <button class="table-amount-btn" @click="changeAmount(1)">+</button>
+          <button
+            v-if="!admin"
+            class="table-amount-btn"
+            @click="changeAmount(-1)"
+          >
+            -
+          </button>
+          <h3 v-if="!admin" class="table-amount-text">{{ totalAmount }}</h3>
+          <button
+            v-if="!admin"
+            class="table-amount-btn"
+            @click="changeAmount(1)"
+          >
+            +
+          </button>
         </div>
       </div>
     </div>
   </div>
   <div class="table-container table-container-end">
-    <button class="circle-white" @click="deleteBook()">
+    <h3 v-if="admin">
+      {{ totalAmount }}
+    </h3>
+    <button v-if="!admin" class="circle-white" @click="deleteBook()">
       <img class="table-row-svg" src="/public/trash.svg" alt="" />
     </button>
-    <h2>{{ totalPrice * totalAmount }}</h2>
+    <h2>{{ totalPrice * totalAmount }}$</h2>
   </div>
 </template>
 
@@ -29,11 +44,11 @@ import type { Book } from "~/types";
 
 const orderAmount = useState<number>("orderAmount");
 
-const props = defineProps<{ book: Book }>();
+const props = defineProps<{ book: Book; admin?: string }>();
 const emit = defineEmits<{
   (e: "deleteBook", id: string): void;
 }>();
-const totalAmount = ref(1);
+const totalAmount = ref(props.admin ? props.book.amount : 1);
 const totalPrice = ref(props.book.price);
 
 const changeAmount = (number: number) => {

@@ -31,7 +31,7 @@
 import { LINK_TEMPLATES } from "~/mocks/links";
 import { data } from "~/mocks/mock";
 
-defineProps<{ theme: string }>();
+defineProps<{ theme?: string }>();
 const genres = ref([
   "All genres",
   "Science",
