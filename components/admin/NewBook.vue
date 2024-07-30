@@ -51,8 +51,9 @@
 <script setup lang="ts">
 import { required, maxLength } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
-import type { AddBook } from "~/types";
+import type { AddBook, Book } from "~/types";
 
+const props = defineProps<{ data: Book }>();
 const runtimeConfig = useRuntimeConfig();
 const submits = ref(0);
 const data: AddBook = reactive({
@@ -100,11 +101,22 @@ const submit = async () => {
     formData.append("price", data.price!.toString());
     formData.append("amount", data.amount!.toString());
     formData.append("category", data.category);
-    await $fetch(`${runtimeConfig.public.API_BASE_URL}/book/add-book`, {
-      method: "POST",
-      body: formData,
-    });
-    setToDefault();
+    if (props.data.id) {
+      await $fetch(
+        `${runtimeConfig.public.API_BASE_URL}/book/update-book/` +
+          props.data.id,
+        {
+          method: "PUT",
+          body: formData,
+        }
+      );
+    } else {
+      await $fetch(`${runtimeConfig.public.API_BASE_URL}/book/add-book`, {
+        method: "POST",
+        body: formData,
+      });
+      setToDefault();
+    }
   } catch (err) {
     // In future here will be notification for user
     console.log("error", err);
@@ -114,6 +126,16 @@ const submit = async () => {
 const setImage = (item: File) => {
   data.image = item;
 };
+
+onMounted(() => {
+  data.amount = props.data.amount;
+  data.title = props.data.title;
+  data.description = props.data.description;
+  data.author = props.data.author;
+  data.price = props.data.price;
+  data.image = props.data.image;
+  data.category = props.data.category;
+});
 </script>
 
 <style scoped lang="scss">

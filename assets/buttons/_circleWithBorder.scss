@@ -1,0 +1,13 @@
+@mixin circle-with-border {
+    .circle-with-border {
+      display: flex;
+      background-color: $white;
+      padding: 5px;
+      border: 1px solid $blue;
+      border-radius: 100%;
+      & img {
+        height: 24px;
+      }
+    }
+  }
+  

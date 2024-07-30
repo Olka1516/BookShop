@@ -29,6 +29,7 @@
   }
 
   .details-buy {
+    width: 100%;
     gap: 10px;
     flex-direction: column;
     & h2 {
@@ -58,5 +59,16 @@
 
   p {
     color: $grey;
+  }
+
+  .details-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .admin-buttons {
+    justify-content: end;
+    gap: 10px;
   }
 }
