@@ -1,14 +1,16 @@
 <template>
   <div class="info-content">
     <img class="book-img" :src="`${props.image}`" alt="" />
-    <div class="info-container">
+    <div class="info-container" :class="{ 'light-theme': theme === 'white' }">
       <div class="info-texts">
         <h1>
           {{ props.title }}
         </h1>
         <p>{{ props.description }}</p>
       </div>
-      <NuxtLink :to="LINK_TEMPLATES.ABOUT()" class="no-bg-no-border">Details</NuxtLink>
+      <NuxtLink :to="LINK_TEMPLATES.ABOUT()" class="no-bg-no-border"
+        >Details</NuxtLink
+      >
     </div>
   </div>
 </template>
@@ -20,6 +22,7 @@ const props = defineProps<{
   title: string;
   image: string;
   description: string;
+  theme?: string;
 }>();
 </script>
 

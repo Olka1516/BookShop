@@ -30,7 +30,16 @@ i {
   font-style: normal;
 }
 
-button {
+textarea {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  outline: none;
+  border-color: #ccc;
+  font-weight: 500;
+}
+
+button,
+.button {
   margin: 0;
   padding: 6px 24px;
   cursor: pointer;
@@ -47,7 +56,8 @@ button {
   }
 }
 
-button:focus {
+button:focus,
+.button:focus {
   outline: none;
 }
 

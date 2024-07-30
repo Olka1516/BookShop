@@ -28,6 +28,8 @@ const {
   PasswordIsEqual,
   UsernameInUse,
   UsernameOrPasswordWrong,
+  MaxLength50,
+  MaxLength255,
 } = ErrorMessageEnum;
 
 const getError = () => {
@@ -53,6 +55,26 @@ const getError = () => {
       if (message === IsRequired) return "Username is required";
       else if (props.error === UsernameInUse)
         return "Username is already taken!";
+      break;
+    case "title":
+      if (message === IsRequired) return "Title is required";
+      else if (message === MaxLength50) return MaxLength50;
+      break;
+    case "description":
+      if (message === IsRequired) return "Description is required";
+      else if (message === MaxLength255) return MaxLength255;
+      break;
+    case "author":
+      if (message === IsRequired) return "Author is required";
+      break;
+    case "category":
+      if (message === IsRequired) return "Category is required";
+      break;
+    case "price":
+      if (message === IsRequired) return "Price is required";
+      break;
+    case "amount":
+      if (message === IsRequired) return "Amount is required";
       break;
   }
 };
