@@ -48,7 +48,7 @@ const buyBook = () => {
   let basket = localStorage.getItem("basket");
   const newBasket = basket ? JSON.parse(basket) : [];
   newBasket.push(dataFetch.value);
-  
+
   const jsonbasket = JSON.stringify(newBasket);
   localStorage.setItem("basket", jsonbasket);
 };

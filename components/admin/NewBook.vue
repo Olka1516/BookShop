@@ -2,7 +2,13 @@
   <div class="container">
     <h1>Add new book</h1>
     <div class="content">
-      <div><InputsDragFile @update="(item) => setImage(item)" :v="v$.image" /></div>
+      <div>
+        <InputsDragFile
+          @update="(item) => setImage(item)"
+          :v="v$.image"
+          :submits="submits"
+        />
+      </div>
       <div class="form">
         <div class="form-input">
           <InputsText type="Title" v-model="data.title" :v="v$.title" />
@@ -47,6 +53,8 @@ import { required, maxLength } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
 import type { AddBook } from "~/types";
 
+const runtimeConfig = useRuntimeConfig();
+const submits = ref(0);
 const data: AddBook = reactive({
   title: "",
   description: "",
@@ -67,15 +75,45 @@ const rules = {
   category: { required },
 };
 
+const setToDefault = () => {
+  data.title = "";
+  data.description = "";
+  data.author = "";
+  data.price = null;
+  data.amount = null;
+  data.image = null;
+  data.category = "";
+
+  submits.value++;
+};
+
 const v$ = useVuelidate(rules, data);
 const submit = async () => {
   const isFormCorrect = await v$.value.$validate();
   if (!isFormCorrect) return;
+  try {
+    const formData = new FormData();
+    formData.append("file", data.image!);
+    formData.append("title", data.title);
+    formData.append("description", data.description);
+    formData.append("author", data.author);
+    formData.append("price", data.price!.toString());
+    formData.append("amount", data.amount!.toString());
+    formData.append("category", data.category);
+    await $fetch(`${runtimeConfig.public.API_BASE_URL}/book/add-book`, {
+      method: "POST",
+      body: formData,
+    });
+    setToDefault();
+  } catch (err) {
+    // In future here will be notification for user
+    console.log("error", err);
+  }
 };
 
 const setImage = (item: File) => {
-  data.image = item
-}
+  data.image = item;
+};
 </script>
 
 <style scoped lang="scss">

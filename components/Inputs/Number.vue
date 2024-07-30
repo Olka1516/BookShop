@@ -45,6 +45,14 @@ const handleInput = (event: any) => {
 const isInfoInvalid = () => {
   return props.v.$invalid && props.v.$dirty;
 };
+
+watch(
+  () => props.modelValue,
+  () => {
+    userInfo.value = props.modelValue;
+    props.v.$dirty = false;
+  }
+);
 </script>
 <style scoped lang="scss">
 @use "@/assets/index";

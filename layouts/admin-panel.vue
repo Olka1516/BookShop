@@ -1,38 +1,44 @@
 <template>
+  <div :class="{ 'black-bg': isBtnVisible && isSidebarVisible }"></div>
+  <button class="circle-white" id="open" @click="toggleSidebar(true)">
+    <img src="/icons/person.svg" alt="" />
+  </button>
   <div class="panel-container">
-    <div class="sidebar">
-      <div class="sidebar-content">
-        <h1>Hello, Admin!</h1>
-        <div class="sidebar-navs">
-          <button
-            v-for="nav in allNavs"
-            :class="{ active: isActive(nav) }"
-            @click="changeNav(nav)"
-            class="button-navs"
-          >
-            <div v-if="isActive(nav)" class="active-left-round"></div>
-            {{ nav }}
-          </button>
-        </div>
-        <button class="sidebar-exit">Log out</button>
-      </div>
-    </div>
-
+    <Sidebar :visible="isSidebarVisible" @close="toggleSidebar(false)" :navs="allNavs" :activeNav="activeNav" @navChange="changeNav"/>
     <slot />
   </div>
 </template>
 
 <script setup lang="ts">
 const allNavs = ref(["All Books", "All Orders", "New book"]);
-const activeNav = useState("activeNav", () => "All Books");
+const activeNav = useState('activeNav', () => "All Books");
+const isOpen = ref(false);
+const btnElement = ref<HTMLElement | null>(null);
 
 const changeNav = (nav: string) => {
   activeNav.value = nav;
+  toggleSidebar(false);
 };
 
-const isActive = (nav: string) => {
-  return nav === activeNav.value;
+const toggleSidebar = (value: boolean) => {
+  isOpen.value = value;
 };
+
+const isSidebarVisible = computed(() => {
+  if (!btnElement.value) return false;
+  const computedStyle = window.getComputedStyle(btnElement.value);
+  return isOpen.value || computedStyle.display === "none";
+});
+
+const isBtnVisible = computed(() => {
+  if (!btnElement.value) return false;
+  const computedStyle = window.getComputedStyle(btnElement.value);
+  return computedStyle.display !== "none";
+});
+
+onMounted(() => {
+  btnElement.value = document.getElementById("open");
+});
 </script>
 
 <style scoped lang="scss">

@@ -32,11 +32,12 @@
 import { ref, onMounted, type Ref } from "vue";
 
 const props = defineProps<{
-  v?: {
+  v: {
     $invalid: boolean;
     $dirty: boolean;
   };
   url?: string;
+  submits?: number;
 }>();
 
 const text = ref(
@@ -158,6 +159,15 @@ const isInfoInvalid = () => {
   if (!props.v) return;
   return props.v.$invalid && props.v.$dirty && !isImageChoosen.value;
 };
+
+watch(
+  () => props.submits,
+  () => {
+    clearGallery();
+    isImageChoosen.value = false;
+    props.v.$dirty = false;
+  }
+);
 </script>
 
 <style scoped lang="scss">

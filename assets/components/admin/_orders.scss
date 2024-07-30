@@ -2,7 +2,11 @@
   .container {
     background-color: $white;
     padding-block: 20px 40px;
-    min-height: 100vh;
+    min-height: 90vh;
+    @media screen and (max-width: 1200px) {
+      margin-top: 10px;
+      width: 100vw;
+    }
   }
 
   .orders-content {
