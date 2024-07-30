@@ -4,33 +4,32 @@
       <img src="/icons/backWhite.svg" alt="" />
     </button>
     <div class="sidebar-content">
-      <h1>Hello, Admin!</h1>
       <div class="sidebar-navs">
         <button
           v-for="nav in navs"
-          :key="nav"
-          :class="{ active: nav === activeNav }"
           @click="$emit('navChange', nav)"
           class="button-navs"
         >
-          <div v-if="nav === activeNav" class="active-left-round"></div>
           {{ nav }}
         </button>
+        <NuxtLink :to="LINK_TEMPLATES.BASKET()" class="burger-basket"
+          ><img src="/icons/basketWhite.svg" alt=""
+        /></NuxtLink>
       </div>
-      <button class="sidebar-exit">Log out</button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { LINK_TEMPLATES } from "~/mocks/links";
+
 defineProps<{
   visible: boolean;
   navs: string[];
-  activeNav: string;
 }>();
 </script>
 
 <style scoped lang="scss">
 @use "@/assets/index";
-@include index.sidebar;
+@include index.layout-burger;
 </style>

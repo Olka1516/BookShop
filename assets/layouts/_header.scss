@@ -21,4 +21,24 @@
   .logo-img {
     height: 70px;
   }
+
+  .header-empty {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  #open {
+    @media screen and (min-width: 767px) {
+      display: none;
+    }
+  }
+
+  .black-bg {
+    background-color: $transparent_black;
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+    height: 100%;
+  }
 }
