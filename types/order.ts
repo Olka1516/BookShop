@@ -1,6 +1,7 @@
 import type { Book } from "./book";
 
 export interface Order {
+  id: string;
   firstname: string;
   lastname: string;
   phone: string;
