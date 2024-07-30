@@ -47,6 +47,12 @@ const isInfoInvalid = () => {
     props.error === UsernameOrPasswordWrong
   );
 };
+
+watch(() => props.modelValue, 
+() => {
+  userInfo.value = props.modelValue
+  props.v.$dirty = false
+})
 </script>
 <style scoped lang="scss">
 @use "@/assets/index";
