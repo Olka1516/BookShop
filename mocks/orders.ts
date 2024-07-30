@@ -1,25 +1,6 @@
-export const data: {
-  id: string;
-  firstname: string;
-  lastname: string;
-  phone: string;
-  email: string;
-  country: string;
-  town: string;
-  department: string;
-  comment: string;
-  orders: {
-    id: string;
-    title: string;
-    description: string;
-    image: string;
-    author: string;
-    amount: number;
-    price: number;
-    category: string;
-    star: number;
-  }[];
-}[] = [
+import type { Order } from "~/types/order";
+
+export const data: Order[] = [
   {
     firstname: "Olka",
     lastname: "Korolchuk",

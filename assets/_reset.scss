@@ -16,8 +16,7 @@ body {
   margin: 0;
 }
 
-input,
-textarea {
+input {
   outline: none;
   border-color: #ccc;
   font-family: "Roboto", sans-serif;
@@ -25,11 +24,18 @@ textarea {
   font-style: normal;
 }
 
-i,
-textarea {
+i {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+textarea {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  outline: none;
+  border-color: #ccc;
+  font-weight: 500;
 }
 
 button,
