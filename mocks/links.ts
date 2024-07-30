@@ -7,4 +7,5 @@ export const LINK_TEMPLATES = {
   INFOBOOKS: (username: string) => `/profile/${username}`,
   ADMINPANEL: () => `/admin-panel`,
   ADMINTABLE: (id: string) => `/admin-panel/${id}`,
+  ADMINUPDATEBOOK: (id: string) => `/admin-panel/update-book/${id}`,
 };

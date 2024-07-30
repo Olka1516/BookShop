@@ -16,8 +16,6 @@ export interface AddBook {
   author: string;
   price: number | null;
   amount: number | null;
-  image: null | File;
+  image: null | File | string;
   category: string;
 }
-
-

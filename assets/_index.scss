@@ -6,6 +6,7 @@
 @import "./buttons/circleWhite";
 @import "./buttons/noBgNoBorder";
 @import "./buttons/noBgWithBorder";
+@import "./buttons/circleWithBorder";
 @import "./general/forms";
 @import "./general/container";
 @import "./components/admin/orders";
@@ -104,6 +105,7 @@
 }
 
 @mixin details-book {
+  @include circle-with-border;
   @include details-book-component;
 }
 

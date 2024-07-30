@@ -1,7 +1,7 @@
 <template>
   <div class="details">
     <div class="details-line"></div>
-    <img class="details-book-img" :src="`/temp/${dataFetch.image}`" alt="" />
+    <img class="details-book-img" :src="`/${dataFetch.image}`" alt="" />
     <div class="details-content">
       <div class="details-content-texts">
         <div>
@@ -18,7 +18,20 @@
       </div>
       <div class="details-buy">
         <h2>${{ dataFetch.price }}</h2>
-        <button @click="buyBook()">Buy</button>
+        <div class="details-buttons">
+          <button @click="buyBook()">Buy</button>
+          <div v-if="role === 'ADMIN'" class="details-buttons admin-buttons">
+            <NuxtLink
+              :to="LINK_TEMPLATES.ADMINUPDATEBOOK(data.id)"
+              class="circle-with-border"
+            >
+              <img src="/icons/settings.svg" alt="" />
+            </NuxtLink>
+            <button @click="deleteBook()" class="circle-with-border">
+              <img src="/trash.svg" alt="" />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -26,7 +39,9 @@
 
 <script setup lang="ts">
 import type { Book } from "~/types";
+import { LINK_TEMPLATES } from "~/mocks/links";
 
+const role = useState<string>("admin");
 const runtimeConfig = useRuntimeConfig();
 const route = useRoute();
 const dataFetch = ref({
@@ -51,6 +66,20 @@ const buyBook = () => {
 
   const jsonbasket = JSON.stringify(newBasket);
   localStorage.setItem("basket", jsonbasket);
+};
+
+const deleteBook = async () => {
+  try {
+    await $fetch(
+      `${runtimeConfig.public.API_BASE_URL}/book/delete-book/` +
+        route.params.id,
+      {
+        method: "DELETE",
+      }
+    );
+  } catch (err) {
+    console.log(err);
+  }
 };
 </script>
 
