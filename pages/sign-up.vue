@@ -2,11 +2,21 @@
   <div class="form">
     <h1>SIGN UP</h1>
     <div class="form-input">
-      <InputsText type="Username" v-model="data.username" :v="v$.username" />
+      <InputsText
+        type="Username"
+        v-model="data.username"
+        :v="v$.username"
+        :error="error"
+      />
       <InputsErrorMessage :v="v$.username" :error="error" />
     </div>
     <div class="form-input">
-      <InputsText type="Email" v-model="data.email" :v="v$.email" />
+      <InputsText
+        type="Email"
+        v-model="data.email"
+        :v="v$.email"
+        :error="error"
+      />
       <InputsErrorMessage :v="v$.email" :error="error" />
     </div>
     <div class="form-input">
@@ -38,6 +48,10 @@
 import { LINK_TEMPLATES } from "~/mocks/links";
 import { email, required, sameAs, minLength } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
+import type { TRequestError } from "~/types";
+
+const runtimeConfig = useRuntimeConfig();
+
 definePageMeta({
   layout: "auth",
 });
@@ -45,10 +59,10 @@ definePageMeta({
 const error = ref("");
 
 const data = reactive({
-  username: "",
-  email: "",
-  password: "",
-  confirmPassword: "",
+  username: "olka",
+  email: "olka@gmail.com",
+  password: "123456",
+  confirmPassword: "123456",
 });
 
 const rules = {
@@ -65,6 +79,19 @@ const v$ = useVuelidate(rules, data);
 const submit = async () => {
   const isFormCorrect = await v$.value.$validate();
   if (!isFormCorrect) return;
+  try {
+    await $fetch(`${runtimeConfig.public.API_BASE_URL}/auth/sign-up`, {
+      method: "post",
+      body: {
+        username: data.username,
+        email: data.email,
+        password: data.password,
+      },
+    });
+  } catch (err) {
+    const message = err as TRequestError;
+    error.value = message.data.message;
+  }
 };
 </script>
 
