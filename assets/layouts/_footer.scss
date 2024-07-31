@@ -6,6 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     box-shadow: 0 2px 5px $black;
   }
 
@@ -14,7 +15,7 @@
   }
   .footer-navs {
     display: flex;
-    gap: 5px;
+    gap: 10px;
   }
 
   hr {

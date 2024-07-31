@@ -29,8 +29,9 @@
 
 <script setup lang="ts">
 import { LINK_TEMPLATES } from "~/mocks/links";
-import { data } from "~/mocks/mock";
+import type { Book } from "~/types";
 
+const runtimeConfig = useRuntimeConfig();
 defineProps<{ theme?: string }>();
 const genres = ref([
   "All genres",
@@ -40,6 +41,10 @@ const genres = ref([
   "Philosophy",
   "Fantasy",
 ]);
+
+const data: Book[] = await $fetch(
+  `${runtimeConfig.public.API_BASE_URL}/book/get-all-book`
+);
 </script>
 
 <style scoped lang="scss">

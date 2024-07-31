@@ -8,7 +8,7 @@
         </h1>
         <p>{{ props.description }}</p>
       </div>
-      <NuxtLink :to="LINK_TEMPLATES.ABOUT()" class="no-bg-no-border"
+      <NuxtLink :to="LINK_TEMPLATES.DETAILSBOOK(id)" class="no-bg-no-border"
         >Details</NuxtLink
       >
     </div>
