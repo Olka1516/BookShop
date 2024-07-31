@@ -128,7 +128,6 @@ const setImage = (item: File) => {
 
 onBeforeMount(() => {
   if (!props.data) return;
-  console.log("hete image", props.data.image);
   data.amount = props.data.amount;
   data.title = props.data.title;
   data.description = props.data.description;

@@ -20,7 +20,7 @@
         <h2>${{ dataFetch.price.toFixed(2) }}</h2>
         <div class="details-buttons">
           <button @click="buyBook()">Buy</button>
-          <div v-if="role === 'ADMIN'" class="details-buttons admin-buttons">
+          <div class="details-buttons admin-buttons">
             <NuxtLink
               :to="LINK_TEMPLATES.ADMINUPDATEBOOK(data.id)"
               class="circle-with-border"
