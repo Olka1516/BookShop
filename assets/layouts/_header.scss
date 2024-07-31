@@ -36,7 +36,7 @@
 
   .black-bg {
     background-color: $transparent_black;
-    position: absolute;
+    inset: 0;
     width: 100%;
     z-index: 3;
     height: 100%;
