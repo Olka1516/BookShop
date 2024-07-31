@@ -1,16 +1,21 @@
 <template>
+  <div :class="{ 'black-bg': isOpen }"></div>
   <header>
     <div class="header-navs">
       <img class="logo-img" src="/logo.png" alt="" />
-      <button v-for="nav in navs">{{ nav }}</button>
+      <button class="header-empty" v-for="nav in navs">{{ nav }}</button>
     </div>
     <div class="header-navs">
       <InputsSearch />
-      <NuxtLink :to="LINK_TEMPLATES.BASKET()"
-        ><img src="/basket.svg" alt=""
+      <NuxtLink :to="LINK_TEMPLATES.BASKET()" class="header-empty"
+        ><img src="/icons/basket.svg" alt=""
       /></NuxtLink>
+      <button class="circle-white" id="open" @click="toggleSidebar(true)">
+        <img src="/icons/person.svg" alt="" />
+      </button>
     </div>
   </header>
+  <Burger :visible="isOpen" @close="toggleSidebar(false)" :navs="navs" />
 
   <slot />
 
@@ -41,6 +46,12 @@ const mediaNavs = ref([
   "viber",
   "youtube",
 ]);
+
+const isOpen = ref(false);
+
+const toggleSidebar = (value: boolean) => {
+  isOpen.value = value;
+};
 </script>
 
 <style scoped lang="scss">

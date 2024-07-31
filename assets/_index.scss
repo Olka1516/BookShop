@@ -19,6 +19,9 @@
 @import "./components/basket/basketTable";
 @import "./components/basket/basketProcess";
 @import "./components/basket/basketTableCard";
+@import "./components/global/burger";
+@import "./components/global/sbAndBg";
+@import "./components/global/sidebar";
 @import "./pages/sign";
 @import "./pages/basket";
 @import "./pages/adminOrder";
@@ -34,6 +37,7 @@
   @include header;
   @include footer;
   @include no-bg-no-border;
+  @include circle-white;
 }
 
 @mixin content {
@@ -132,6 +136,17 @@
 @mixin admin-sidebar {
   @include circle-white;
   @include admin-sidebar-container;
+}
+
+@mixin layout-burger {
+  @include circle-white;
+  @include layout-burger-container;
+  @include sidebar-burger-container;
+}
+
+@mixin sidebar {
+  @include sidebar-container;
+  @include sidebar-burger-container;
 }
 
 @mixin admin-new-book {
