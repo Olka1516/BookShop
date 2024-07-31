@@ -7,6 +7,7 @@
           @update="(item) => setImage(item)"
           :v="v$.image"
           :submits="submits"
+          :url="props.data?.image"
         />
       </div>
       <div class="form">
@@ -53,7 +54,7 @@ import { required, maxLength } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
 import type { AddBook, Book } from "~/types";
 
-const props = defineProps<{ data: Book }>();
+const props = defineProps<{ data?: Book }>();
 const runtimeConfig = useRuntimeConfig();
 const submits = ref(0);
 const data: AddBook = reactive({
@@ -101,15 +102,13 @@ const submit = async () => {
     formData.append("price", data.price!.toString());
     formData.append("amount", data.amount!.toString());
     formData.append("category", data.category);
-    if (props.data.id) {
-      await $fetch(
-        `${runtimeConfig.public.API_BASE_URL}/book/update-book/` +
-          props.data.id,
-        {
-          method: "PUT",
-          body: formData,
-        }
-      );
+    if (props.data && props.data.id) {
+      formData.append("id", props.data.id);
+      await $fetch(`${runtimeConfig.public.API_BASE_URL}/book/update-book`, {
+        method: "PUT",
+        body: formData,
+      });
+      // here create redirection 
     } else {
       await $fetch(`${runtimeConfig.public.API_BASE_URL}/book/add-book`, {
         method: "POST",
@@ -127,7 +126,9 @@ const setImage = (item: File) => {
   data.image = item;
 };
 
-onMounted(() => {
+onBeforeMount(() => {
+  if (!props.data) return;
+  console.log("hete image", props.data.image);
   data.amount = props.data.amount;
   data.title = props.data.title;
   data.description = props.data.description;

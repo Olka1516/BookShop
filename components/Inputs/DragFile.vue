@@ -141,6 +141,16 @@ const clearGallery = () => {
   if (gallery) gallery.innerHTML = "";
 };
 
+const isInfoInvalid = () => {
+  if (isHeavy.value) return isHeavy.value;
+  if (!props.v) return;
+  return props.v.$invalid && props.v.$dirty && !isImageChoosen.value;
+};
+
+const appendImg = (img: HTMLImageElement) => {
+  document.getElementById("gallery")?.appendChild(img);
+};
+
 onMounted(() => {
   dropArea.value = document.querySelector(".drop-area");
   if (!props.url) return;
@@ -151,14 +161,8 @@ onMounted(() => {
   img.style.width = "100%";
   img.style.objectFit = "cover";
   img.style.borderRadius = "20px";
-  document.getElementById("gallery")?.appendChild(img);
+  setTimeout(appendImg, 100, img);
 });
-
-const isInfoInvalid = () => {
-  if (isHeavy.value) return isHeavy.value;
-  if (!props.v) return;
-  return props.v.$invalid && props.v.$dirty && !isImageChoosen.value;
-};
 
 watch(
   () => props.submits,
