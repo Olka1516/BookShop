@@ -22,15 +22,13 @@
       />
       <label class="button" for="fileElem"> Choose image </label>
     </form>
-    <div v-if="isImageChoosen" class="image-content">
+    <div class="image-content">
       <div id="gallery"></div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, type Ref } from "vue";
-
 const props = defineProps<{
   v: {
     $invalid: boolean;
@@ -127,7 +125,7 @@ const previewFile = (file: File) => {
     if (reader.result !== null && typeof reader.result === "string") {
       let img = document.createElement("img");
       img.src = reader.result;
-      img.style.height = "440px";
+      img.style.height = "490px";
       img.style.width = "100%";
       img.style.objectFit = "cover";
       img.style.borderRadius = "20px";
@@ -141,24 +139,24 @@ const clearGallery = () => {
   if (gallery) gallery.innerHTML = "";
 };
 
+const isInfoInvalid = () => {
+  if (isHeavy.value) return isHeavy.value;
+  if (!props.v) return;
+  return props.v.$invalid && props.v.$dirty && !isImageChoosen.value;
+};
+
 onMounted(() => {
   dropArea.value = document.querySelector(".drop-area");
   if (!props.url) return;
   isImageChoosen.value = true;
   let img = document.createElement("img");
   img.src = props.url;
-  img.style.height = "440px";
+  img.style.height = "490px";
   img.style.width = "100%";
   img.style.objectFit = "cover";
   img.style.borderRadius = "20px";
   document.getElementById("gallery")?.appendChild(img);
 });
-
-const isInfoInvalid = () => {
-  if (isHeavy.value) return isHeavy.value;
-  if (!props.v) return;
-  return props.v.$invalid && props.v.$dirty && !isImageChoosen.value;
-};
 
 watch(
   () => props.submits,

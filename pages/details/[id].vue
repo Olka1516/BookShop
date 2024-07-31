@@ -1,7 +1,7 @@
 <template>
   <div class="details">
     <div class="details-line"></div>
-    <img class="details-book-img" :src="`/${dataFetch.image}`" alt="" />
+    <img class="details-book-img" :src="`${dataFetch.image}`" alt="" />
     <div class="details-content">
       <div class="details-content-texts">
         <div>
@@ -17,10 +17,10 @@
         <p>{{ dataFetch.description }}</p>
       </div>
       <div class="details-buy">
-        <h2>${{ dataFetch.price }}</h2>
+        <h2>${{ dataFetch.price.toFixed(2) }}</h2>
         <div class="details-buttons">
           <button @click="buyBook()">Buy</button>
-          <div v-if="role === 'ADMIN'" class="details-buttons admin-buttons">
+          <div class="details-buttons admin-buttons">
             <NuxtLink
               :to="LINK_TEMPLATES.ADMINUPDATEBOOK(data.id)"
               class="circle-with-border"
@@ -77,6 +77,7 @@ const deleteBook = async () => {
         method: "DELETE",
       }
     );
+    //here create redirection
   } catch (err) {
     console.log(err);
   }
