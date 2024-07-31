@@ -2,7 +2,16 @@
   <header>
     <div class="header-navs">
       <img class="logo-img" src="/logo.png" alt="" />
-      <button v-for="nav in navs">{{ nav }}</button>
+      <NuxtLink
+        v-for="nav in navs"
+        :to="nav()"
+        :class="{ button: nav.name !== 'SIGN_UP' }"
+        >{{
+          (nav.name.charAt(0).toUpperCase() + nav.name.slice(1).toLowerCase())
+            .split("_")
+            .join(" ")
+        }}</NuxtLink
+      >
     </div>
     <div class="header-navs">
       <InputsSearch />
@@ -23,7 +32,14 @@
     </div>
     <hr />
     <div class="footer-navs">
-      <button class="no-bg-no-border" v-for="nav in navs">{{ nav }}</button>
+      <NuxtLink
+        class="no-bg-no-border"
+        v-for="nav in navs.slice(0, 2)"
+        :to="nav()"
+        >{{
+          nav.name.charAt(0).toUpperCase() + nav.name.slice(1).toLowerCase()
+        }}</NuxtLink
+      >
     </div>
     <h4 class="footer-logo">@BookShop</h4>
   </footer>
@@ -32,7 +48,12 @@
 <script setup lang="ts">
 import { LINK_TEMPLATES } from "~/mocks/links";
 
-const navs = ref(["Home", "Categories", "Shop"]);
+const navs = ref([
+  LINK_TEMPLATES.HOME,
+  LINK_TEMPLATES.CATEGORIES,
+  LINK_TEMPLATES.SIGN_IN,
+  LINK_TEMPLATES.SIGN_UP,
+]);
 const mediaNavs = ref([
   "instagram",
   "linkedin",
